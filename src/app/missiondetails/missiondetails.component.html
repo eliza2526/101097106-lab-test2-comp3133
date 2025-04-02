@@ -1,0 +1,18 @@
+<div *ngIf="missionDetails">
+    <h1>{{ missionDetails.mission_name }}</h1>
+    <p><strong>Flight Number: </strong>{{ missionDetails.flight_number }} </p>
+    <p><strong>Launch Year: </strong> {{ missionDetails.launch_year }} </p>
+    <p><strong>Details: </strong>{{ missionDetails.details || "No details available" }}</p>
+    <img *ngIf="missionDetails.links.mission_patch_small" [src]="missionDetails.links.mission_patch_small" alt="Mission Patch">
+    
+    <h3>Rocket Information</h3>
+    <p><strong>Name: </strong>{{ missionDetails.rocket.rocket_name }}</p>
+    <p><strong>Type: </strong>{{ missionDetails.rocket.rocket_type }}</p>
+
+    <h3>Links</h3>
+    <ul>
+        <li *ngIf="missionDetails.links.article_link"><a [href]="missionDetails.links.article_link" target="_blank">Article</a></li>
+        <li *ngIf="missionDetails.links.wikipedia"><a [href]="missionDetails.wikipedia" target="_blank">Wikipedia</a></li>
+        <li *ngIf="missionDetails.links.video_link"><a [href]="missionDetails.links.video_link" target="_blank">Video</a></li>
+    </ul>
+</div>
