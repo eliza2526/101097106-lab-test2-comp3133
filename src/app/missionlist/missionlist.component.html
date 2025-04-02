@@ -1,13 +1,12 @@
+<mat-toolbar color="primary">SpaceX Missions</mat-toolbar>
 <app-missionfilter (onFilter)="filterMissions($event)"></app-missionfilter>
 
 <div *ngFor="let mission of filteredLaunches" class="mission-card">
     <h3>{{ mission.mission_name }} ({{ mission.launch_year }}) </h3>
     <p><strong>Flight Number: </strong> {{ mission.flight_number }} </p>
-    <button [routerLink]="['/missions', mission.flight_number]">View Details</button>
     <p><strong>Details: </strong> {{ mission.details || "No details available" }} </p>
     <img *ngIf="mission.links.mission_patch_small" [src]="mission.links.mission_patch_small" alt="Mission Patch">
 </div>
-
 <div *ngFor="let mission of launches" class="mission-card">
     <h3>{{ mission.mission_name }} ({{ mission.launch_year }})</h3>
     <p><strong>Flight Number: </strong> {{ mission.flight_number }}</p>
