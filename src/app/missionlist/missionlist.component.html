@@ -1,0 +1,18 @@
+<div *ngFor="let mission of launches" class="mission-card">
+    <h3>{{ mission.mission_name }} ({{ mission.launch_year }})</h3>
+    <p><strong>Flight Number: </strong> {{ mission.flight_number }}</p>
+    <p><strong>Details: </strong> {{ mission.details || 'No details available' }}</p>
+    
+    <img *ngIf="mission.links.mission_patch_small" [src]="mission.links.mission_patch_small" alt="Mission Patch">
+    <h4>Rocket Information</h4>
+    <p><strong>Name:</strong> {{ mission.rocket.rocket_name }}</p>
+    <p><strong>Type:</strong> {{ mission.rocket.rocket_type }}</p>
+    <h4>Links</h4>
+    
+    <ul>
+    <li *ngIf="mission.links.article_link"><a [href]="mission.links.article_link" target="_blank">Article</a></li>
+    <li *ngIf="mission.links.wikipedia"><a [href]="mission.links.wikipedia" target="_blank">Wikipedia</a></li>
+    <li *ngIf="mission.links.video_link"><a [href]="mission.links.video_link" target="_blank">Video</a></li>
+    </ul>
+    
+</div>
